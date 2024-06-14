@@ -1,6 +1,19 @@
 
 let playeScore = 0;
 let compScore = 0;
+
+const buttons = document.querySelectorAll('#btn')
+
+buttons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        let nombre =  e.target.getAttribute
+        ('name');
+       console.log(nombre);
+       humanSelection(nombre);
+        playRound(humanSelection(),compSelection())
+
+    })
+});
 // codigo de la com para seleccionar su  opcion)
 function compSelection (){
     let option=  Math.floor((Math.random()*(4-1)+1));
@@ -8,15 +21,18 @@ function compSelection (){
         case 1 : 
             
             option = "rock"
+            console.log(option)
             return  option
             break;
         case 2 : 
             
             option = "paper"
+            console.log(option)
             return  option
             break;
         case 3 :
             option = "scissors"
+            console.log(option)
             return  option
             break;
         default: 
@@ -26,9 +42,9 @@ function compSelection (){
  
 }
 
-function humanSelection(){
-    let playerOption = prompt("Choose Rock, Paper or Scissors");
-    return playerOption.toLowerCase();
+function humanSelection(nombre){
+    let playerOption = nombre;
+    return playerOption
 }
 
 
@@ -53,6 +69,3 @@ function playRound(humanChoice, computerChoice) {
     }
   }
 
-while (playeScore < 5 && compScore <5){
-    playRound(humanSelection(), compSelection());
-}
